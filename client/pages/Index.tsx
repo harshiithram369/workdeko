@@ -415,7 +415,7 @@ const SmartFeatures = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20 mb-4">
+          <Badge className="bg-white/95 text-primary border-primary/30 shadow-sm mb-4">
             🚀 Revolutionary AI Features
           </Badge>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
