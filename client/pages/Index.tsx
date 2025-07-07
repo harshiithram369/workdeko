@@ -138,147 +138,308 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative z-10 grid gap-6 md:gap-4 md:grid-cols-3 max-w-2xl mx-auto">
-              {/* Worker Profile Card 1 */}
-              <div className="transform hover:scale-105 transition-all duration-300 rotate-3 hover:rotate-0">
-                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-                  <div className="aspect-square relative overflow-hidden">
-                    <img
-                      src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
-                      alt="Construction worker"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <Badge className="bg-success text-success-foreground text-xs">
-                        ✓ Hired
-                      </Badge>
+          <div className="relative overflow-hidden">
+            <div className="flex space-x-4 animate-scroll">
+              {/* First row of cards */}
+              <div className="flex space-x-4 min-w-full">
+                {/* Worker Profile Card 1 */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
+                        alt="Construction worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-success text-success-foreground text-xs">
+                          ✓ Hired
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Rajesh Kumar
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Construction Worker
+                      </p>
+
+                      <div className="bg-accent/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-accent rounded-sm"></div>
+                          <span className="text-xs font-medium text-accent">
+                            Larsen & Toubro
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-success h-1 rounded-full animate-pulse w-full"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-foreground mb-1">
-                      Rajesh Kumar
-                    </h3>
-                    <p className="text-sm text-secondary-foreground mb-3">
-                      Construction Worker
-                    </p>
+                </div>
 
-                    {/* Company Match */}
-                    <div className="bg-accent/10 rounded-lg p-2 mb-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-4 h-4 bg-accent rounded-sm"></div>
-                        <span className="text-xs font-medium text-accent">
-                          Larsen & Toubro
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div
-                          className="bg-success h-1.5 rounded-full animate-pulse"
-                          style={{ width: "100%" }}
-                        ></div>
+                {/* Worker Profile Card 2 */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/6169151/pexels-photo-6169151.jpeg"
+                        alt="Warehouse worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-accent text-accent-foreground text-xs">
+                          Interview Today
+                        </Badge>
                       </div>
                     </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Priya Sharma
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Warehouse Assistant
+                      </p>
 
-                    {/* Status Indicator */}
-                    <div className="flex items-center gap-2 text-xs text-success">
-                      <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                      <span>Successfully placed</span>
+                      <div className="bg-primary/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-primary rounded-sm"></div>
+                          <span className="text-xs font-medium text-primary">
+                            Amazon
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-accent h-1 rounded-full animate-loading w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Worker Profile Card 3 */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/6169634/pexels-photo-6169634.jpeg"
+                        alt="Delivery worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-primary text-primary-foreground text-xs">
+                          5 Matches
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Amit Singh
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Delivery Executive
+                      </p>
+
+                      <div className="bg-success/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-success rounded-sm"></div>
+                          <span className="text-xs font-medium text-success">
+                            Flipkart
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-primary h-1 rounded-full animate-loading-pulse w-3/5"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Worker Profile Card 4 */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/5493653/pexels-photo-5493653.jpeg"
+                        alt="Factory worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-success text-success-foreground text-xs">
+                          ✓ Placed
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Sita Devi
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Factory Worker
+                      </p>
+
+                      <div className="bg-accent/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-accent rounded-sm"></div>
+                          <span className="text-xs font-medium text-accent">
+                            Tata Motors
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-success h-1 rounded-full w-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Worker Profile Card 5 */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/4481258/pexels-photo-4481258.jpeg"
+                        alt="Team lead"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-accent text-accent-foreground text-xs">
+                          Interviewing
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Vikram Patel
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Team Lead
+                      </p>
+
+                      <div className="bg-primary/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-primary rounded-sm"></div>
+                          <span className="text-xs font-medium text-primary">
+                            Mahindra
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-accent h-1 rounded-full animate-loading w-4/5"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Worker Profile Card 2 */}
-              <div className="transform hover:scale-105 transition-all duration-300 -rotate-2 hover:rotate-0">
-                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-                  <div className="aspect-square relative overflow-hidden">
-                    <img
-                      src="https://images.pexels.com/photos/5493653/pexels-photo-5493653.jpeg"
-                      alt="Warehouse worker"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <Badge className="bg-accent text-accent-foreground text-xs">
-                        Interview Today
-                      </Badge>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-foreground mb-1">
-                      Priya Sharma
-                    </h3>
-                    <p className="text-sm text-secondary-foreground mb-3">
-                      Warehouse Assistant
-                    </p>
-
-                    {/* Company Match */}
-                    <div className="bg-primary/10 rounded-lg p-2 mb-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-4 h-4 bg-primary rounded-sm"></div>
-                        <span className="text-xs font-medium text-primary">
-                          Amazon Fulfillment
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div
-                          className="bg-accent h-1.5 rounded-full animate-[loading_2s_ease-in-out_infinite]"
-                          style={{ width: "75%" }}
-                        ></div>
+              {/* Duplicate for seamless scroll */}
+              <div className="flex space-x-4 min-w-full">
+                {/* Same cards repeated for seamless loop */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
+                        alt="Construction worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-success text-success-foreground text-xs">
+                          ✓ Hired
+                        </Badge>
                       </div>
                     </div>
-
-                    {/* Status Indicator */}
-                    <div className="flex items-center gap-2 text-xs text-accent">
-                      <div className="w-2 h-2 bg-accent rounded-full animate-bounce"></div>
-                      <span>Interview scheduled</span>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Rajesh Kumar
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Construction Worker
+                      </p>
+                      <div className="bg-accent/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-accent rounded-sm"></div>
+                          <span className="text-xs font-medium text-accent">
+                            Larsen & Toubro
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-success h-1 rounded-full w-full"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Worker Profile Card 3 */}
-              <div className="transform hover:scale-105 transition-all duration-300 rotate-1 hover:rotate-0">
-                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-                  <div className="aspect-square relative overflow-hidden">
-                    <img
-                      src="https://images.pexels.com/photos/4481258/pexels-photo-4481258.jpeg"
-                      alt="Factory worker"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <Badge className="bg-primary text-primary-foreground text-xs">
-                        5 Matches
-                      </Badge>
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/6169151/pexels-photo-6169151.jpeg"
+                        alt="Warehouse worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-accent text-accent-foreground text-xs">
+                          Interview Today
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Priya Sharma
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Warehouse Assistant
+                      </p>
+                      <div className="bg-primary/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-primary rounded-sm"></div>
+                          <span className="text-xs font-medium text-primary">
+                            Amazon
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-accent h-1 rounded-full animate-loading w-3/4"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-foreground mb-1">
-                      Amit Singh
-                    </h3>
-                    <p className="text-sm text-secondary-foreground mb-3">
-                      Factory Operator
-                    </p>
+                </div>
 
-                    {/* Company Match */}
-                    <div className="bg-success/10 rounded-lg p-2 mb-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-4 h-4 bg-success rounded-sm"></div>
-                        <span className="text-xs font-medium text-success">
-                          Tata Motors
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div
-                          className="bg-primary h-1.5 rounded-full animate-[loading_3s_ease-in-out_infinite]"
-                          style={{ width: "60%" }}
-                        ></div>
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/6169634/pexels-photo-6169634.jpeg"
+                        alt="Delivery worker"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-primary text-primary-foreground text-xs">
+                          5 Matches
+                        </Badge>
                       </div>
                     </div>
-
-                    {/* Status Indicator */}
-                    <div className="flex items-center gap-2 text-xs text-primary">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                      <span>Applications sent</span>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-1">
+                        Amit Singh
+                      </h3>
+                      <p className="text-sm text-secondary-foreground mb-2">
+                        Delivery Executive
+                      </p>
+                      <div className="bg-success/10 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-3 h-3 bg-success rounded-sm"></div>
+                          <span className="text-xs font-medium text-success">
+                            Flipkart
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1">
+                          <div className="bg-primary h-1 rounded-full animate-loading-pulse w-3/5"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
