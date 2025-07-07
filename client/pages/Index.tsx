@@ -214,28 +214,26 @@ const Hero = () => {
             </div>
 
             {/* Live Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
-              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-primary/20 shadow-lg">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">
+            <div className="grid grid-cols-3 gap-3 pt-8 max-w-md">
+              <div className="text-center p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg border border-primary/30">
+                <div className="text-lg font-bold text-primary">
                   <AnimatedCounter value={250} suffix="K+" />
                 </div>
-                <div className="text-sm text-foreground font-medium">
-                  💼 Jobs Posted
-                </div>
+                <div className="text-xs text-primary font-medium">💼 Jobs</div>
               </div>
-              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-accent/20 shadow-lg">
-                <div className="text-2xl lg:text-3xl font-bold text-accent">
+              <div className="text-center p-3 bg-gradient-to-br from-accent/20 to-accent/10 rounded-lg border border-accent/30">
+                <div className="text-lg font-bold text-accent">
                   <AnimatedCounter value={850} suffix="+" />
                 </div>
-                <div className="text-sm text-foreground font-medium">
+                <div className="text-xs text-accent font-medium">
                   🏢 Companies
                 </div>
               </div>
-              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-success/20 shadow-lg">
-                <div className="text-2xl lg:text-3xl font-bold text-success">
+              <div className="text-center p-3 bg-gradient-to-br from-success/20 to-success/10 rounded-lg border border-success/30">
+                <div className="text-lg font-bold text-success">
                   <AnimatedCounter value={150} suffix="+" />
                 </div>
-                <div className="text-sm text-foreground font-medium">
+                <div className="text-xs text-success font-medium">
                   🌍 Cities
                 </div>
               </div>
