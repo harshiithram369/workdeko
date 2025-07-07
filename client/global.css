@@ -151,12 +151,50 @@
     }
   }
 
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+
+  @keyframes loading-pulse {
+    0%,
+    100% {
+      width: 60%;
+      opacity: 1;
+    }
+    50% {
+      width: 90%;
+      opacity: 0.8;
+    }
+  }
+
+  .animate-loading {
+    animation: loading 2s ease-in-out infinite;
+  }
+
+  .animate-loading-pulse {
+    animation: loading-pulse 3s ease-in-out infinite;
+  }
+
   .pause {
     animation-play-state: paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee {
+      animation: none;
+    }
+    .animate-loading {
+      animation: none;
+    }
+    .animate-loading-pulse {
       animation: none;
     }
   }
