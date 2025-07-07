@@ -36,7 +36,7 @@ import {
   Building2,
   Gauge,
   Sparkles,
-  Robot,
+  Bot,
   Headphones,
   FileText,
   ThumbsUp,
@@ -209,7 +209,7 @@ const Hero = () => {
                 className="border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
               >
                 🤖 Try AI Interview
-                <Robot className="w-5 h-5 ml-2" />
+                <Bot className="w-5 h-5 ml-2" />
               </Button>
             </div>
 
@@ -661,7 +661,7 @@ const AITools = () => {
               className="mt-8 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white"
             >
               🚀 Try AI Tools Free
-              <Robot className="w-5 h-5 ml-2" />
+              <Bot className="w-5 h-5 ml-2" />
             </Button>
           </div>
 
@@ -669,7 +669,7 @@ const AITools = () => {
             <Card className="p-8 bg-gradient-to-br from-white to-gray-50 border-2 border-primary/10">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
                   🤖 AI Career Assistant
