@@ -173,7 +173,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-1 gap-12 items-center max-w-4xl">
           <div className="space-y-8">
             <div className="space-y-4">
               <Badge className="bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20">
