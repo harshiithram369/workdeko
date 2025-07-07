@@ -215,94 +215,92 @@ const Hero = () => {
 
             {/* Live Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
+              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-primary/20 shadow-lg">
                 <div className="text-2xl lg:text-3xl font-bold text-primary">
                   <AnimatedCounter value={250} suffix="K+" />
                 </div>
-                <div className="text-sm text-secondary-foreground">
+                <div className="text-sm text-foreground font-medium">
                   💼 Jobs Posted
                 </div>
               </div>
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
+              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-accent/20 shadow-lg">
                 <div className="text-2xl lg:text-3xl font-bold text-accent">
                   <AnimatedCounter value={850} suffix="+" />
                 </div>
-                <div className="text-sm text-secondary-foreground">
+                <div className="text-sm text-foreground font-medium">
                   🏢 Companies
                 </div>
               </div>
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
+              <div className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-success/20 shadow-lg">
                 <div className="text-2xl lg:text-3xl font-bold text-success">
                   <AnimatedCounter value={150} suffix="+" />
                 </div>
-                <div className="text-sm text-secondary-foreground">
+                <div className="text-sm text-foreground font-medium">
                   🌍 Cities
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Success Stories Cards */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
+          {/* Success Stories Cards - Positioned in top right */}
+          <div className="absolute top-8 right-4 lg:right-8 z-10 hidden md:block">
+            <div className="grid grid-cols-2 gap-3 w-80">
               <FloatingCard delay={0}>
-                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20">
-                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20 w-36">
+                  <div className="aspect-[3/4] relative overflow-hidden rounded-t-lg">
                     <img
                       src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
                       alt="Construction worker"
                       className="w-full h-full object-cover"
                     />
-                    <Badge className="absolute top-2 left-2 bg-success text-white">
-                      ✅ Hired in 2 Days
+                    <Badge className="absolute top-1 left-1 bg-success text-white text-xs px-1 py-0.5">
+                      ✅ Hired
                     </Badge>
                   </div>
-                  <CardContent className="p-3">
-                    <h3 className="font-semibold text-sm">Rajesh Kumar</h3>
-                    <p className="text-xs text-secondary-foreground mb-2">
-                      🏗️ Construction Supervisor
+                  <CardContent className="p-2">
+                    <h3 className="font-semibold text-xs">Rajesh Kumar</h3>
+                    <p className="text-xs text-secondary-foreground mb-1">
+                      🏗️ Construction
                     </p>
-                    <div className="bg-success/10 rounded p-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Building2 className="w-3 h-3 text-success" />
+                    <div className="bg-success/10 rounded p-1">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <Building2 className="w-2 h-2 text-success" />
                         <span className="text-xs font-medium text-success">
-                          L&T Construction
+                          L&T
                         </span>
                       </div>
-                      <div className="text-xs text-success">
-                        💰 ₹45,000/month
-                      </div>
+                      <div className="text-xs text-success">💰 ₹45K/mo</div>
                     </div>
                   </CardContent>
                 </Card>
               </FloatingCard>
 
               <FloatingCard delay={0.5}>
-                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-accent/20">
-                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-accent/20 w-36">
+                  <div className="aspect-[3/4] relative overflow-hidden rounded-t-lg">
                     <img
                       src="https://images.pexels.com/photos/6169151/pexels-photo-6169151.jpeg"
                       alt="Warehouse worker"
                       className="w-full h-full object-cover"
                     />
-                    <Badge className="absolute top-2 left-2 bg-accent text-white">
-                      🎤 AI Interview Today
+                    <Badge className="absolute top-1 left-1 bg-accent text-white text-xs px-1 py-0.5">
+                      🎤 Interview
                     </Badge>
                   </div>
-                  <CardContent className="p-3">
-                    <h3 className="font-semibold text-sm">Priya Sharma</h3>
-                    <p className="text-xs text-secondary-foreground mb-2">
-                      📦 Warehouse Manager
+                  <CardContent className="p-2">
+                    <h3 className="font-semibold text-xs">Priya Sharma</h3>
+                    <p className="text-xs text-secondary-foreground mb-1">
+                      📦 Warehouse
                     </p>
-                    <div className="bg-accent/10 rounded p-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Building2 className="w-3 h-3 text-accent" />
+                    <div className="bg-accent/10 rounded p-1">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <Building2 className="w-2 h-2 text-accent" />
                         <span className="text-xs font-medium text-accent">
                           Amazon
                         </span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1">
-                        <div className="bg-accent h-1 rounded-full animate-pulse w-3/4"></div>
+                      <div className="w-full bg-gray-200 rounded-full h-0.5">
+                        <div className="bg-accent h-0.5 rounded-full animate-pulse w-3/4"></div>
                       </div>
                     </div>
                   </CardContent>
@@ -310,64 +308,60 @@ const Hero = () => {
               </FloatingCard>
 
               <FloatingCard delay={1}>
-                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-primary/20">
-                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-primary/20 w-36">
+                  <div className="aspect-[3/4] relative overflow-hidden rounded-t-lg">
                     <img
                       src="https://images.pexels.com/photos/6169634/pexels-photo-6169634.jpeg"
                       alt="Delivery worker"
                       className="w-full h-full object-cover"
                     />
-                    <Badge className="absolute top-2 left-2 bg-primary text-white">
-                      🎯 8 Smart Matches
+                    <Badge className="absolute top-1 left-1 bg-primary text-white text-xs px-1 py-0.5">
+                      🎯 8 Matches
                     </Badge>
                   </div>
-                  <CardContent className="p-3">
-                    <h3 className="font-semibold text-sm">Amit Singh</h3>
-                    <p className="text-xs text-secondary-foreground mb-2">
-                      🚛 Delivery Executive
+                  <CardContent className="p-2">
+                    <h3 className="font-semibold text-xs">Amit Singh</h3>
+                    <p className="text-xs text-secondary-foreground mb-1">
+                      🚛 Delivery
                     </p>
-                    <div className="bg-primary/10 rounded p-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Building2 className="w-3 h-3 text-primary" />
+                    <div className="bg-primary/10 rounded p-1">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <Building2 className="w-2 h-2 text-primary" />
                         <span className="text-xs font-medium text-primary">
                           Flipkart
                         </span>
                       </div>
-                      <div className="text-xs text-primary">
-                        🏆 95% Match Score
-                      </div>
+                      <div className="text-xs text-primary">🏆 95% Match</div>
                     </div>
                   </CardContent>
                 </Card>
               </FloatingCard>
 
               <FloatingCard delay={1.5}>
-                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20">
-                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20 w-36">
+                  <div className="aspect-[3/4] relative overflow-hidden rounded-t-lg">
                     <img
                       src="https://images.pexels.com/photos/5493653/pexels-photo-5493653.jpeg"
                       alt="Factory worker"
                       className="w-full h-full object-cover"
                     />
-                    <Badge className="absolute top-2 left-2 bg-success text-white">
-                      🎓 AI Coaching Done
+                    <Badge className="absolute top-1 left-1 bg-success text-white text-xs px-1 py-0.5">
+                      🎓 Trained
                     </Badge>
                   </div>
-                  <CardContent className="p-3">
-                    <h3 className="font-semibold text-sm">Sita Devi</h3>
-                    <p className="text-xs text-secondary-foreground mb-2">
-                      ⚙️ Quality Inspector
+                  <CardContent className="p-2">
+                    <h3 className="font-semibold text-xs">Sita Devi</h3>
+                    <p className="text-xs text-secondary-foreground mb-1">
+                      ⚙️ Quality
                     </p>
-                    <div className="bg-success/10 rounded p-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Building2 className="w-3 h-3 text-success" />
+                    <div className="bg-success/10 rounded p-1">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <Building2 className="w-2 h-2 text-success" />
                         <span className="text-xs font-medium text-success">
-                          Tata Motors
+                          Tata
                         </span>
                       </div>
-                      <div className="text-xs text-success">
-                        📈 Skills Upgraded
-                      </div>
+                      <div className="text-xs text-success">📈 Upgraded</div>
                     </div>
                   </CardContent>
                 </Card>
