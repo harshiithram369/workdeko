@@ -32,7 +32,7 @@ import {
   BookOpen,
   Lightbulb,
   Layers,
-  Compare,
+  Scale,
   Building2,
   Gauge,
   Sparkles,
@@ -220,7 +220,7 @@ const Hero = () => {
                   <AnimatedCounter value={250} suffix="K+" />
                 </div>
                 <div className="text-sm text-secondary-foreground">
-                  ���� Jobs Posted
+                  💼 Jobs Posted
                 </div>
               </div>
               <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
@@ -324,7 +324,7 @@ const Hero = () => {
                   <CardContent className="p-3">
                     <h3 className="font-semibold text-sm">Amit Singh</h3>
                     <p className="text-xs text-secondary-foreground mb-2">
-                      ��� Delivery Executive
+                      🚛 Delivery Executive
                     </p>
                     <div className="bg-primary/10 rounded p-2">
                       <div className="flex items-center gap-2 mb-1">
@@ -821,7 +821,7 @@ const JobComparison = () => {
               className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
             >
               ⚖️ Compare More Jobs
-              <Compare className="w-5 h-5 ml-2" />
+              <Scale className="w-5 h-5 ml-2" />
             </Button>
           </div>
         </div>
