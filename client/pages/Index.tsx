@@ -176,7 +176,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-1 gap-12 items-center max-w-4xl">
           <div className="space-y-8">
             <div className="space-y-4">
-              <Badge className="bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20">
+              <Badge className="bg-white/95 text-primary border-primary/30 shadow-sm">
                 🎯 India's #1 AI-Powered Job Platform
               </Badge>
               <h1 className="text-4xl lg:text-7xl font-bold text-foreground leading-tight">
