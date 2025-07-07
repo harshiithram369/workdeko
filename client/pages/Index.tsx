@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Play,
   Download,
@@ -17,10 +17,39 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
+  Brain,
+  Target,
+  TrendingUp,
+  Award,
+  MessageSquare,
+  Search,
+  Filter,
+  BarChart3,
+  Briefcase,
+  UserCheck,
+  Calendar,
+  Video,
+  BookOpen,
+  Lightbulb,
+  Layers,
+  Compare,
+  Building2,
+  Gauge,
+  Sparkles,
+  Robot,
+  Headphones,
+  FileText,
+  ThumbsUp,
+  ArrowUpRight,
+  ChevronDown,
+  Menu,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,20 +61,64 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300 ${isScrolled ? "shadow-lg border-b" : ""}`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="text-2xl font-bold text-primary">WorkDeko</div>
-        <div className="flex gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+            <Briefcase className="w-4 h-4 text-white" />
+          </div>
+          <div className="text-2xl font-bold text-primary">WorkDeko</div>
+          <Badge className="bg-success/10 text-success border-success/20 text-xs">
+            🤖 AI Powered
+          </Badge>
+        </div>
+
+        <div className="hidden lg:flex items-center gap-6">
+          <a
+            href="#features"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            🎯 Smart Features
+          </a>
+          <a
+            href="#jobs"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            💼 Find Jobs
+          </a>
+          <a
+            href="#ai-tools"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            🤖 AI Tools
+          </a>
+          <a
+            href="#trends"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            📈 Trends
+          </a>
+        </div>
+
+        <div className="flex items-center gap-3">
           <Button variant="outline" size="sm" className="hidden sm:flex">
             <Download className="w-4 h-4 mr-2" />
-            Download App
+            📱 Get App
           </Button>
           <Button
             size="sm"
-            className="bg-primary hover:bg-hover text-primary-foreground"
+            className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white"
           >
-            Post a Job
+            🚀 Post Job
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="lg:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <Menu className="w-4 h-4" />
           </Button>
         </div>
       </div>
@@ -83,216 +156,222 @@ const AnimatedCounter = ({ value, suffix = "" }) => {
   );
 };
 
+const FloatingCard = ({ children, delay = 0 }) => (
+  <div className="animate-float" style={{ animationDelay: `${delay}s` }}>
+    {children}
+  </div>
+);
+
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background to-orange-50 py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-background via-orange-50 to-blue-50 py-20 lg:py-32">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-bounce"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-success/10 rounded-full animate-ping"></div>
+      </div>
+
       <div className="container mx-auto px-4 relative">
-        {/* Worker cards positioned in top right corner */}
-        <div className="absolute top-0 right-4 md:right-8 lg:right-16 z-10">
-          <div className="grid grid-cols-2 gap-2 w-80">
-            {/* Worker Profile Card 1 - Top Left */}
-            <div className="transform hover:scale-105 transition-all duration-300">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div className="aspect-[4/5] relative overflow-hidden">
-                  <img
-                    src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
-                    alt="Construction worker"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-1.5 left-1.5">
-                    <Badge className="bg-success text-success-foreground text-xs px-1.5 py-0.5">
-                      ✓ Hired
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h3 className="font-semibold text-foreground mb-0.5 text-xs">
-                    Rajesh Kumar
-                  </h3>
-                  <p className="text-xs text-secondary-foreground mb-1.5">
-                    Construction Worker
-                  </p>
-
-                  <div className="bg-accent/10 rounded p-1.5">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-sm"></div>
-                      <span className="text-xs font-medium text-accent">
-                        L&T
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-0.5">
-                      <div className="bg-success h-0.5 rounded-full animate-pulse w-full"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Worker Profile Card 2 - Top Right */}
-            <div className="transform hover:scale-105 transition-all duration-300">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div className="aspect-[4/5] relative overflow-hidden">
-                  <img
-                    src="https://images.pexels.com/photos/6169151/pexels-photo-6169151.jpeg"
-                    alt="Warehouse worker"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-1.5 left-1.5">
-                    <Badge className="bg-accent text-accent-foreground text-xs px-1.5 py-0.5">
-                      Interview
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h3 className="font-semibold text-foreground mb-0.5 text-xs">
-                    Priya Sharma
-                  </h3>
-                  <p className="text-xs text-secondary-foreground mb-1.5">
-                    Warehouse Assistant
-                  </p>
-
-                  <div className="bg-primary/10 rounded p-1.5">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-sm"></div>
-                      <span className="text-xs font-medium text-primary">
-                        Amazon
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-0.5">
-                      <div className="bg-accent h-0.5 rounded-full animate-loading w-3/4"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Worker Profile Card 3 - Bottom Left */}
-            <div className="transform hover:scale-105 transition-all duration-300">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div className="aspect-[4/5] relative overflow-hidden">
-                  <img
-                    src="https://images.pexels.com/photos/6169634/pexels-photo-6169634.jpeg"
-                    alt="Delivery worker"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-1.5 left-1.5">
-                    <Badge className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5">
-                      5 Matches
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h3 className="font-semibold text-foreground mb-0.5 text-xs">
-                    Amit Singh
-                  </h3>
-                  <p className="text-xs text-secondary-foreground mb-1.5">
-                    Delivery Executive
-                  </p>
-
-                  <div className="bg-success/10 rounded p-1.5">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <div className="w-1.5 h-1.5 bg-success rounded-sm"></div>
-                      <span className="text-xs font-medium text-success">
-                        Flipkart
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-0.5">
-                      <div className="bg-primary h-0.5 rounded-full animate-loading-pulse w-3/5"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Worker Profile Card 4 - Bottom Right */}
-            <div className="transform hover:scale-105 transition-all duration-300">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div className="aspect-[4/5] relative overflow-hidden">
-                  <img
-                    src="https://images.pexels.com/photos/5493653/pexels-photo-5493653.jpeg"
-                    alt="Factory worker"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-1.5 left-1.5">
-                    <Badge className="bg-success text-success-foreground text-xs px-1.5 py-0.5">
-                      ✓ Placed
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h3 className="font-semibold text-foreground mb-0.5 text-xs">
-                    Sita Devi
-                  </h3>
-                  <p className="text-xs text-secondary-foreground mb-1.5">
-                    Factory Worker
-                  </p>
-
-                  <div className="bg-accent/10 rounded p-1.5">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-sm"></div>
-                      <span className="text-xs font-medium text-accent">
-                        Tata
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-0.5">
-                      <div className="bg-success h-0.5 rounded-full w-full"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Main content */}
-        <div className="max-w-2xl pt-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-              Find the Right Job—In Minutes
-            </h1>
-            <p className="text-lg text-secondary-foreground max-w-md">
-              Connect with thousands of verified employers across India. Apply
-              for free, get hired fast.
-            </p>
+            <div className="space-y-4">
+              <Badge className="bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20">
+                🎯 India's #1 AI-Powered Job Platform
+              </Badge>
+              <h1 className="text-4xl lg:text-7xl font-bold text-foreground leading-tight">
+                🚀 Find Your
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-success">
+                  {" "}
+                  Dream Job
+                </span>
+                <br />
+                in Minutes! ⚡
+              </h1>
+              <p className="text-lg text-secondary-foreground max-w-md">
+                🤖 AI-powered matching, 🎤 mock interviews, 📚 skill coaching,
+                and 📊 trend analysis - all in one platform designed for
+                blue-collar professionals.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-hover text-primary-foreground"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                Find Jobs Now
-                <ArrowRight className="w-5 h-5 ml-2" />
+                🎯 Smart Job Match
+                <Sparkles className="w-5 h-5 ml-2" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
               >
-                For Employers
+                🤖 Try AI Interview
+                <Robot className="w-5 h-5 ml-2" />
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-8">
-              <div className="text-center">
+            {/* Live Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
                 <div className="text-2xl lg:text-3xl font-bold text-primary">
-                  <AnimatedCounter value={150} suffix="K+" />
-                </div>
-                <div className="text-sm text-secondary-foreground">Jobs</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">
-                  <AnimatedCounter value={450} suffix="+" />
+                  <AnimatedCounter value={250} suffix="K+" />
                 </div>
                 <div className="text-sm text-secondary-foreground">
-                  Companies
+                  ���� Jobs Posted
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">
-                  <AnimatedCounter value={100} suffix="+" />
+              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="text-2xl lg:text-3xl font-bold text-accent">
+                  <AnimatedCounter value={850} suffix="+" />
                 </div>
-                <div className="text-sm text-secondary-foreground">Cities</div>
+                <div className="text-sm text-secondary-foreground">
+                  🏢 Companies
+                </div>
               </div>
+              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="text-2xl lg:text-3xl font-bold text-success">
+                  <AnimatedCounter value={150} suffix="+" />
+                </div>
+                <div className="text-sm text-secondary-foreground">
+                  🌍 Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Success Stories Cards */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
+              <FloatingCard delay={0}>
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20">
+                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                    <img
+                      src="https://images.pexels.com/photos/4483693/pexels-photo-4483693.jpeg"
+                      alt="Construction worker"
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-2 left-2 bg-success text-white">
+                      ✅ Hired in 2 Days
+                    </Badge>
+                  </div>
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-sm">Rajesh Kumar</h3>
+                    <p className="text-xs text-secondary-foreground mb-2">
+                      🏗️ Construction Supervisor
+                    </p>
+                    <div className="bg-success/10 rounded p-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Building2 className="w-3 h-3 text-success" />
+                        <span className="text-xs font-medium text-success">
+                          L&T Construction
+                        </span>
+                      </div>
+                      <div className="text-xs text-success">
+                        💰 ₹45,000/month
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </FloatingCard>
+
+              <FloatingCard delay={0.5}>
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-accent/20">
+                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                    <img
+                      src="https://images.pexels.com/photos/6169151/pexels-photo-6169151.jpeg"
+                      alt="Warehouse worker"
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-2 left-2 bg-accent text-white">
+                      🎤 AI Interview Today
+                    </Badge>
+                  </div>
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-sm">Priya Sharma</h3>
+                    <p className="text-xs text-secondary-foreground mb-2">
+                      📦 Warehouse Manager
+                    </p>
+                    <div className="bg-accent/10 rounded p-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Building2 className="w-3 h-3 text-accent" />
+                        <span className="text-xs font-medium text-accent">
+                          Amazon
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-1">
+                        <div className="bg-accent h-1 rounded-full animate-pulse w-3/4"></div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </FloatingCard>
+
+              <FloatingCard delay={1}>
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-primary/20">
+                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                    <img
+                      src="https://images.pexels.com/photos/6169634/pexels-photo-6169634.jpeg"
+                      alt="Delivery worker"
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-2 left-2 bg-primary text-white">
+                      🎯 8 Smart Matches
+                    </Badge>
+                  </div>
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-sm">Amit Singh</h3>
+                    <p className="text-xs text-secondary-foreground mb-2">
+                      ��� Delivery Executive
+                    </p>
+                    <div className="bg-primary/10 rounded p-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Building2 className="w-3 h-3 text-primary" />
+                        <span className="text-xs font-medium text-primary">
+                          Flipkart
+                        </span>
+                      </div>
+                      <div className="text-xs text-primary">
+                        🏆 95% Match Score
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </FloatingCard>
+
+              <FloatingCard delay={1.5}>
+                <Card className="transform hover:scale-105 transition-all duration-300 border-2 border-success/20">
+                  <div className="aspect-[4/5] relative overflow-hidden rounded-t-lg">
+                    <img
+                      src="https://images.pexels.com/photos/5493653/pexels-photo-5493653.jpeg"
+                      alt="Factory worker"
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-2 left-2 bg-success text-white">
+                      🎓 AI Coaching Done
+                    </Badge>
+                  </div>
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-sm">Sita Devi</h3>
+                    <p className="text-xs text-secondary-foreground mb-2">
+                      ⚙️ Quality Inspector
+                    </p>
+                    <div className="bg-success/10 rounded p-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Building2 className="w-3 h-3 text-success" />
+                        <span className="text-xs font-medium text-success">
+                          Tata Motors
+                        </span>
+                      </div>
+                      <div className="text-xs text-success">
+                        📈 Skills Upgraded
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </FloatingCard>
             </div>
           </div>
         </div>
@@ -301,141 +380,83 @@ const Hero = () => {
   );
 };
 
-const TrustedByMarquee = () => {
-  const logos = [
-    "Amazon",
-    "Flipkart",
-    "Zomato",
-    "Swiggy",
-    "IKEA",
-    "Walmart",
-    "BigBasket",
-    "Myntra",
-  ];
-
-  return (
-    <section className="py-12 bg-white border-b">
-      <div className="container mx-auto px-4">
-        <h3 className="text-center text-sm text-secondary-foreground mb-8">
-          Trusted by 450+ companies
-        </h3>
-        <div className="overflow-hidden">
-          <div className="flex animate-marquee hover:pause">
-            {[...logos, ...logos].map((logo, index) => (
-              <div key={index} className="flex-shrink-0 mx-8">
-                <div className="h-12 w-32 bg-gray-200 rounded flex items-center justify-center text-gray-500 font-semibold grayscale hover:grayscale-0 transition-all duration-300">
-                  {logo}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const WhyItsEasy = () => {
-  const steps = [
+const SmartFeatures = () => {
+  const features = [
     {
-      icon: Download,
-      title: "Download App",
-      description: "Get the WorkDeko app from Play Store or App Store",
+      icon: Brain,
+      emoji: "🤖",
+      title: "AI Smart Recommendations",
+      description:
+        "Our AI analyzes your skills, experience, and preferences to match you with perfect job opportunities.",
+      gradient: "from-primary to-accent",
     },
     {
-      icon: Users,
-      title: "Apply Free",
-      description: "Browse and apply to thousands of jobs for free",
+      icon: Video,
+      emoji: "🎤",
+      title: "AI Mock Interviews",
+      description:
+        "Practice with our AI interviewer in your language. Get instant feedback and confidence boost.",
+      gradient: "from-accent to-primary",
     },
     {
-      icon: Clock,
-      title: "Talk to HR",
-      description: "Connect directly with hiring managers",
+      icon: BookOpen,
+      emoji: "📚",
+      title: "AI Skill Coaching",
+      description:
+        "Personalized skill development plans created by AI to fast-track your career growth.",
+      gradient: "from-success to-primary",
+    },
+    {
+      icon: TrendingUp,
+      emoji: "📊",
+      title: "Job Trend Analysis",
+      description:
+        "Stay ahead with real-time job market trends, salary insights, and demand forecasts.",
+      gradient: "from-primary to-success",
     },
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section
+      id="features"
+      className="py-20 bg-gradient-to-b from-white to-gray-50"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Why It's Easy
+        <div className="text-center mb-16">
+          <Badge className="bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20 mb-4">
+            🚀 Revolutionary AI Features
+          </Badge>
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+            🤖 Smart Features That
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              {" "}
+              Change Everything
+            </span>
           </h2>
-          <p className="text-secondary-foreground max-w-2xl mx-auto">
-            Get hired in just 3 simple steps. No complex procedures, no hidden
-            fees.
+          <p className="text-xl text-secondary-foreground max-w-3xl mx-auto">
+            🎯 Experience the future of job searching with AI-powered tools
+            designed specifically for blue-collar professionals
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {steps.map((step, index) => (
-            <div key={index} className="text-center group">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <step.icon className="w-8 h-8 text-primary group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
-                {step.title}
-              </h3>
-              <p className="text-secondary-foreground">{step.description}</p>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-full w-8 h-0.5 bg-primary/30 transform translate-x-4"></div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const USPsGrid = () => {
-  const usps = [
-    {
-      icon: Shield,
-      title: "Free",
-      description: "100% free for job seekers. No hidden charges ever.",
-    },
-    {
-      icon: Zap,
-      title: "Fast",
-      description: "Apply to multiple jobs in minutes. Quick responses.",
-    },
-    {
-      icon: Globe,
-      title: "Multilingual",
-      description: "Available in Hindi, English, and 10+ regional languages.",
-    },
-    {
-      icon: CheckCircle,
-      title: "Verified Jobs",
-      description: "All jobs verified by our team. No fake postings.",
-    },
-  ];
-
-  return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Why Choose WorkDeko?
-          </h2>
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {usps.map((usp, index) => (
+          {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border"
+              className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/20 hover:-translate-y-2"
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <usp.icon className="w-6 h-6 text-primary group-hover:text-white" />
+              <CardContent className="p-8 text-center">
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {usp.title}
+                <div className="text-3xl mb-4">{feature.emoji}</div>
+                <h3 className="text-xl font-bold text-foreground mb-4">
+                  {feature.title}
                 </h3>
-                <p className="text-secondary-foreground text-sm">
-                  {usp.description}
+                <p className="text-secondary-foreground">
+                  {feature.description}
                 </p>
               </CardContent>
             </Card>
@@ -446,34 +467,61 @@ const USPsGrid = () => {
   );
 };
 
-const EmployerCTABanner = () => {
+const JobCategories = () => {
+  const categories = [
+    { name: "🏗️ Construction", jobs: "45K+", growth: "+15%", icon: "🏗️" },
+    { name: "🚛 Logistics", jobs: "32K+", growth: "+22%", icon: "🚛" },
+    { name: "⚙️ Manufacturing", jobs: "28K+", growth: "+18%", icon: "⚙️" },
+    { name: "🍽️ Hospitality", jobs: "25K+", growth: "+12%", icon: "🍽️" },
+    { name: "⚡ Electrical", jobs: "18K+", growth: "+25%", icon: "⚡" },
+    { name: "🔧 Maintenance", jobs: "15K+", growth: "+20%", icon: "🔧" },
+    { name: "🚗 Automotive", jobs: "22K+", growth: "+16%", icon: "🚗" },
+    { name: "🏭 Factory", jobs: "35K+", growth: "+14%", icon: "🏭" },
+  ];
+
   return (
-    <section className="py-16 bg-accent text-accent-foreground">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Hire the Best Blue-Collar Talent
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            💼 Explore Job Categories
           </h2>
-          <p className="text-lg mb-8 opacity-90">
-            Join 450+ companies who trust WorkDeko for their hiring needs
+          <p className="text-xl text-secondary-foreground">
+            🎯 Find opportunities in your field with real-time job counts and
+            growth trends
           </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold">45K+</div>
-              <div className="opacity-80">Successful Placements</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold">&lt;3 Days</div>
-              <div className="opacity-80">Average Hire Time</div>
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((category, index) => (
+            <Card
+              key={index}
+              className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-primary/20"
+            >
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {category.icon}
+                </div>
+                <h3 className="font-bold text-foreground mb-2">
+                  {category.name}
+                </h3>
+                <div className="text-2xl font-bold text-primary mb-1">
+                  {category.jobs}
+                </div>
+                <div className="text-sm text-success">
+                  📈 {category.growth} growth
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
+        <div className="text-center mt-12">
           <Button
             size="lg"
-            className="bg-hover text-hover-foreground hover:bg-yellow-400"
+            className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white"
           >
-            Post a Job Now
+            🔍 View All Categories
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
@@ -482,233 +530,375 @@ const EmployerCTABanner = () => {
   );
 };
 
-const TestimonialsSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const testimonials = [
-    {
-      name: "Rajesh Kumar",
-      role: "Warehouse Supervisor",
-      content: "Found my dream job within 2 days. The process was so simple!",
-      rating: 5,
-      location: "Mumbai",
-    },
-    {
-      name: "Priya Sharma",
-      role: "Production Worker",
-      content: "WorkDeko helped me find a job near my home with good salary.",
-      rating: 5,
-      location: "Bangalore",
-    },
-    {
-      name: "Amit Singh",
-      role: "Delivery Executive",
-      content: "Best platform for blue-collar jobs. Genuine companies only.",
-      rating: 5,
-      location: "Delhi",
-    },
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            What Our Users Say
-          </h2>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 md:hidden">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-border">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-foreground mb-4">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <div className="font-semibold text-foreground">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-sm text-secondary-foreground">
-                      {testimonial.role} • {testimonial.location}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="hidden md:block">
-            <Card className="border-border">
-              <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-xl text-foreground mb-6">
-                  "{testimonials[currentIndex].content}"
-                </p>
-                <div>
-                  <div className="font-semibold text-foreground text-lg">
-                    {testimonials[currentIndex].name}
-                  </div>
-                  <div className="text-secondary-foreground">
-                    {testimonials[currentIndex].role} •{" "}
-                    {testimonials[currentIndex].location}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="flex justify-center mt-6 gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-primary w-8" : "bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ExplainerVideo = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            See How We Help Workers
-          </h2>
-          <p className="text-secondary-foreground">
-            How We Helped 45K+ Workers Find Their Dream Jobs
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div
-            className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl cursor-pointer group overflow-hidden"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-8 h-8 text-primary ml-1" />
-              </div>
-            </div>
-            <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-xl font-semibold">
-                How We Helped 45K+ Workers
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        {isModalOpen && (
-          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-            <div className="relative max-w-4xl w-full">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300"
-              >
-                <X className="w-8 h-8" />
-              </button>
-              <div className="aspect-video bg-black rounded-lg">
-                <div className="flex items-center justify-center h-full text-white">
-                  Video player would be here
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
-
-const LocationJobIndex = () => {
-  const cities = [
-    { name: "Mumbai", jobs: "15,234" },
-    { name: "Delhi", jobs: "12,456" },
-    { name: "Bangalore", jobs: "8,934" },
-    { name: "Chennai", jobs: "7,123" },
-    { name: "Pune", jobs: "6,789" },
-    { name: "Hyderabad", jobs: "5,432" },
+const TrendingSkills = () => {
+  const skills = [
+    { skill: "🔧 Machine Operation", demand: 95, salary: "₹35K-50K" },
+    { skill: "⚡ Electrical Safety", demand: 88, salary: "₹30K-45K" },
+    { skill: "📱 Digital Literacy", demand: 92, salary: "₹25K-40K" },
+    { skill: "🏗️ Site Management", demand: 85, salary: "₹40K-60K" },
+    { skill: "🚛 Fleet Management", demand: 78, salary: "₹35K-55K" },
+    { skill: "⚙️ Quality Control", demand: 82, salary: "₹30K-48K" },
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-20 bg-gradient-to-br from-accent/5 to-primary/5">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Jobs Available in Your City
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            📈 Trending Skills & Roles
           </h2>
-          <p className="text-secondary-foreground">
-            Find opportunities near you across 100+ cities in India
+          <p className="text-xl text-secondary-foreground">
+            🎯 Stay ahead with the most in-demand skills and their earning
+            potential
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {cities.map((city, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((item, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-border"
+              className="group hover:shadow-xl transition-all duration-300"
             >
-              <CardContent className="p-6 text-center">
-                <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="text-lg font-semibold text-foreground mb-1">
-                  {city.name}
-                </h3>
-                <p className="text-2xl font-bold text-primary">{city.jobs}</p>
-                <p className="text-sm text-secondary-foreground">
-                  jobs available
-                </p>
+              <CardContent className="p-6">
+                <h3 className="font-bold text-foreground mb-4">{item.skill}</h3>
+
+                <div className="mb-4">
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>🔥 Market Demand</span>
+                    <span className="font-bold">{item.demand}%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div
+                      className="bg-gradient-to-r from-primary to-accent h-3 rounded-full transition-all duration-1000"
+                      style={{ width: `${item.demand}%` }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-secondary-foreground">
+                    💰 Salary Range
+                  </span>
+                  <span className="font-bold text-success">{item.salary}</span>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <div className="text-center mt-8">
-          <Button
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            View All Cities
-          </Button>
+const AITools = () => {
+  return (
+    <section
+      id="ai-tools"
+      className="py-20 bg-gradient-to-br from-primary/5 to-accent/5"
+    >
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-8">
+              🤖 AI-Powered Career Tools
+            </h2>
+
+            <div className="space-y-6">
+              <Card className="p-6 border-2 border-primary/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                    <Brain className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">
+                      🎯 Smart Job Matching
+                    </h3>
+                    <p className="text-secondary-foreground">
+                      AI analyzes 50+ factors to find your perfect job match
+                      with 95% accuracy.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 border-2 border-accent/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center">
+                    <Video className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">
+                      🎤 AI Interview Coach
+                    </h3>
+                    <p className="text-secondary-foreground">
+                      Practice interviews in Hindi, English, or regional
+                      languages with instant feedback.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 border-2 border-success/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-success to-primary rounded-xl flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">
+                      📚 Skill Development AI
+                    </h3>
+                    <p className="text-secondary-foreground">
+                      Personalized learning paths to upgrade your skills and
+                      increase salary potential.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <Button
+              size="lg"
+              className="mt-8 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white"
+            >
+              🚀 Try AI Tools Free
+              <Robot className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+
+          <div className="relative">
+            <Card className="p-8 bg-gradient-to-br from-white to-gray-50 border-2 border-primary/10">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Robot className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">
+                  🤖 AI Career Assistant
+                </h3>
+                <p className="text-secondary-foreground">
+                  Available 24/7 in your language
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                    <MessageSquare className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="bg-white rounded-lg p-3 flex-1 shadow-sm">
+                    <p className="text-sm">
+                      "मुझे construction में job चाहिए" 🏗️
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 justify-end">
+                  <div className="bg-gradient-to-r from-primary to-accent rounded-lg p-3 text-white max-w-xs shadow-sm">
+                    <p className="text-sm">
+                      Found 156 construction jobs near you! 🎯 Top match: Site
+                      Supervisor at L&T (₹45K/month) 💰
+                    </p>
+                  </div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              <Button className="w-full mt-6 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white">
+                💬 Start Chatting with AI
+              </Button>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const NewsletterFooter = () => {
+const JobComparison = () => {
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            ⚖️ Side-by-Side Job Comparison
+          </h2>
+          <p className="text-xl text-secondary-foreground">
+            🎯 Compare jobs instantly to make the best career decision
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-2 border-primary/20">
+              <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10">
+                <CardTitle className="flex items-center gap-2">
+                  🏗️ Construction Supervisor
+                  <Badge className="bg-primary text-white">Recommended</Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span>🏢 Company:</span>
+                    <span className="font-bold">L&T Construction</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>💰 Salary:</span>
+                    <span className="font-bold text-success">
+                      ₹45,000/month
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>📍 Location:</span>
+                    <span className="font-bold">Mumbai, Maharashtra</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>⏰ Experience:</span>
+                    <span className="font-bold">3-5 years</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>🎯 Match Score:</span>
+                    <span className="font-bold text-primary">95%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>📅 Joining:</span>
+                    <span className="font-bold">Immediate</span>
+                  </div>
+                </div>
+                <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
+                  🚀 Apply Now
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  🏗️ Site Engineer
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span>🏢 Company:</span>
+                    <span className="font-bold">DLF Limited</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>💰 Salary:</span>
+                    <span className="font-bold text-success">
+                      ₹38,000/month
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>📍 Location:</span>
+                    <span className="font-bold">Gurgaon, Haryana</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>⏰ Experience:</span>
+                    <span className="font-bold">2-4 years</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>🎯 Match Score:</span>
+                    <span className="font-bold text-accent">78%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>📅 Joining:</span>
+                    <span className="font-bold">15 days notice</span>
+                  </div>
+                </div>
+                <Button variant="outline" className="w-full mt-6">
+                  📋 View Details
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
+            >
+              ⚖️ Compare More Jobs
+              <Compare className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const TrustedEmployers = () => {
+  const employers = [
+    { name: "Tata Group", logo: "🏢", jobs: "2.5K+" },
+    { name: "L&T", logo: "🏗️", jobs: "1.8K+" },
+    { name: "Amazon", logo: "📦", jobs: "3.2K+" },
+    { name: "Flipkart", logo: "🛒", jobs: "2.1K+" },
+    { name: "Mahindra", logo: "🚗", jobs: "1.5K+" },
+    { name: "Reliance", logo: "⚡", jobs: "2.8K+" },
+    { name: "Asian Paints", logo: "🎨", jobs: "900+" },
+    { name: "Maruti Suzuki", logo: "🚙", jobs: "1.2K+" },
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            🏆 Trusted by Leading Employers
+          </h2>
+          <p className="text-xl text-secondary-foreground">
+            🤝 850+ companies trust WorkDeko for their blue-collar hiring needs
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 mb-16">
+          {employers.map((employer, index) => (
+            <Card
+              key={index}
+              className="text-center p-4 hover:shadow-lg transition-all duration-300"
+            >
+              <div className="text-4xl mb-2">{employer.logo}</div>
+              <h3 className="font-bold text-sm mb-1">{employer.name}</h3>
+              <div className="text-xs text-primary font-medium">
+                {employer.jobs} jobs
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Card className="inline-block p-8 bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-primary/20">
+            <div className="grid grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-primary">850+</div>
+                <div className="text-sm text-secondary-foreground">
+                  🏢 Companies
+                </div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-accent">45K+</div>
+                <div className="text-sm text-secondary-foreground">
+                  ✅ Placements
+                </div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-success">2.5 days</div>
+                <div className="text-sm text-secondary-foreground">
+                  ⚡ Avg. Hire Time
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
 
@@ -725,14 +915,24 @@ const NewsletterFooter = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background py-16">
+    <footer className="bg-gradient-to-br from-foreground to-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-background/80 mb-6">
-              Get the latest job opportunities and career tips delivered to your
-              inbox.
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                <Briefcase className="w-4 h-4 text-white" />
+              </div>
+              <div className="text-2xl font-bold">WorkDeko</div>
+              <Badge className="bg-success/20 text-success border-success/30">
+                🤖 AI Powered
+              </Badge>
+            </div>
+
+            <p className="text-gray-300 mb-6 max-w-md">
+              🚀 India's most advanced AI-powered job platform for blue-collar
+              professionals. Find your dream job with smart matching, AI
+              interviews, and skill coaching.
             </p>
 
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-md">
@@ -740,86 +940,117 @@ const NewsletterFooter = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="📧 Enter your email for job alerts"
+                className="flex-1 px-4 py-3 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <Button
                 type="submit"
-                className="bg-primary hover:bg-hover text-primary-foreground"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary"
               >
-                Subscribe
+                🔔 Subscribe
               </Button>
             </form>
 
             {status === "success" && (
-              <p className="text-success mt-2">✓ Successfully subscribed!</p>
+              <p className="text-success mt-2">
+                ✅ Successfully subscribed to job alerts!
+              </p>
             )}
             {status === "error" && (
-              <p className="text-destructive mt-2">
-                ✗ Please enter a valid email
-              </p>
+              <p className="text-red-400 mt-2">❌ Please enter a valid email</p>
             )}
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">For Job Seekers</h3>
-            <ul className="space-y-2 text-background/80">
+            <h3 className="font-bold mb-4">🎯 For Job Seekers</h3>
+            <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="#" className="hover:text-primary">
-                  Find Jobs
+                <a href="#" className="hover:text-primary transition-colors">
+                  🔍 Find Jobs
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Resume Builder
+                <a href="#" className="hover:text-primary transition-colors">
+                  🤖 AI Interview Practice
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Career Tips
+                <a href="#" className="hover:text-primary transition-colors">
+                  📚 Skill Development
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Success Stories
+                <a href="#" className="hover:text-primary transition-colors">
+                  📊 Career Insights
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  💬 Career Guidance
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">For Employers</h3>
-            <ul className="space-y-2 text-background/80">
+            <h3 className="font-bold mb-4">🏢 For Employers</h3>
+            <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="#" className="hover:text-primary">
-                  Post Jobs
+                <a href="#" className="hover:text-primary transition-colors">
+                  📝 Post Jobs
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Search Candidates
+                <a href="#" className="hover:text-primary transition-colors">
+                  🎯 Smart Hiring
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Pricing
+                <a href="#" className="hover:text-primary transition-colors">
+                  📈 Analytics Dashboard
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
-                  Recruitment Solutions
+                <a href="#" className="hover:text-primary transition-colors">
+                  💼 Bulk Hiring
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  🤝 Partnership
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-2xl font-bold text-primary mb-4 md:mb-0">
-            WorkDeko
+        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center gap-4 mb-4 md:mb-0">
+            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              WorkDeko
+            </div>
+            <div className="text-gray-400 text-sm">
+              © 2024 WorkDeko. All rights reserved. 🇮🇳 Made in India
+            </div>
           </div>
-          <div className="text-background/60 text-sm">
-            © 2024 WorkDeko. All rights reserved.
+
+          <div className="flex gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gray-400 hover:text-white"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              📞 Support
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gray-400 hover:text-white"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              📧 Contact
+            </Button>
           </div>
         </div>
       </div>
@@ -832,14 +1063,13 @@ export default function Index() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <TrustedByMarquee />
-      <WhyItsEasy />
-      <USPsGrid />
-      <EmployerCTABanner />
-      <TestimonialsSlider />
-      <ExplainerVideo />
-      <LocationJobIndex />
-      <NewsletterFooter />
+      <SmartFeatures />
+      <JobCategories />
+      <TrendingSkills />
+      <AITools />
+      <JobComparison />
+      <TrustedEmployers />
+      <Footer />
     </div>
   );
 }
